@@ -1,0 +1,34 @@
+﻿<Window x:Class="HGEngineHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HGEngineHelper"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" >
+    <Grid>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File" >
+                <MenuItem Header="New HGEHelper Project" Name="MenuNewProject" Click="MenuNewProject_Click" />
+                <MenuItem Header="Open HGEHelper Project" Name="MenuOpenProject" Click="MenuOpenProject_Click" />
+                 />
+                <!--<MenuItem Header="Save HGEHelper Project" />-->
+            </MenuItem>
+            <MenuItem Header="HGEngine">
+                <MenuItem Header="Update Project Data From HGE" Name="ImportFromHge" Click="ImportFromHge_Click" />
+                <MenuItem Header="Write Code to HGE Test" Name="MenuWriteCode" Click="MenuWriteCode_Click" />
+            </MenuItem>
+            <MenuItem Header="Pokemon" Name="MenuPokemon" Click="MenuPokemon_Click" />
+            <MenuItem Header="Learnsets" />
+            <MenuItem Header="Graphics" Name="MenuGraphics" Click="MenuGraphics_Click"/>
+            <MenuItem Header="TMs" />
+            <MenuItem Header="Abilities" />
+            <MenuItem Header="Encounters" />
+            <MenuItem Header="Teams" />
+            <MenuItem Header="Settings" Name="MenuSettings" Click="MenuSettings_Click" />
+        </Menu>
+        <DataGrid FrozenColumnCount="2" Name="MyPokemonGrid" AutoGenerateColumns="True" Margin="0,23,0,0" >
+        
+        </DataGrid>
+    </Grid>
+</Window>

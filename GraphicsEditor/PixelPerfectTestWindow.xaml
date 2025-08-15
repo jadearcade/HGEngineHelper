@@ -1,0 +1,12 @@
+﻿<Window x:Class="HGEngineHelper.GraphicsEditor.PixelPerfectTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="PixelPerfectTestWindow" Height="240" Width="400" UseLayoutRounding="True">
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" UseLayoutRounding="True">
+        <Image  HorizontalAlignment="Left" UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Top" Source="pack://application:,,,/HGEngineHelper;component/Resources/background.png"  Stretch="None"/>
+        <Image  HorizontalAlignment="Left" UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor" VerticalAlignment="Top" Source="pack://application:,,,/HGEngineHelper;component/Resources/platform_you.png" Stretch="None"/>
+    </Grid>
+</Window>

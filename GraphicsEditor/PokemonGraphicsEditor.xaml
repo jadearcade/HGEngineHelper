@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="HGEngineHelper.GraphicsEditor.PokemonGraphicsEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:HGEngineHelper.CustomControls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" UseLayoutRounding="True"
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" Grid.Column="0" Margin="5" Name="cboPokemonSelect" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" />
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Name="lblGenderRatio" Margin="5" >
+                Gender Ratio: 87.5% M/12.5% F
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="5" >
+                <TextBlock>Gender Differences?:</TextBlock>
+                <CheckBox Margin="0,0,10,0" Name="chkDimorphism" />
+            </StackPanel>
+            <Button Grid.Row="0" Grid.Column="1" Margin="10" Name="btnToggleGender" Click="btnToggleGender_Click" Height="20" />
+            <Grid UseLayoutRounding="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="190"/>
+                    <ColumnDefinition Width="190" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Name="lblGender" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontWeight="Bold">
+        Male
+                </TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+        Front
+                </TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">
+        Back
+                </TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+        Normal
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+        Shiny
+                </TextBlock>
+                <Image Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/spritePairBorder.png" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Grid.Column="1" Stretch="None"  />
+                <Image Name="imgFrontNormal" Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/front.png" Grid.Row="1" Grid.Column="1" Width="160" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0" />
+
+                <Image Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/spritePairBorder.png" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Grid.Column="2" Stretch="None"  />
+                <Image Name="imgBackNormal"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/back.png" Grid.Row="1" Grid.Column="2" Width="160" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0" />
+                
+                <Image Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/spritePairBorder.png" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2" Grid.Column="1" Stretch="None"  />
+                <Image Name="imgFrontShiny" Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/front.png"  Grid.Row="2" Grid.Column="1" Width="160" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0" />
+                
+                <Image Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/spritePairBorder.png" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2" Grid.Column="2" Stretch="None"  />
+                <Image Name="imgBackShiny" Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0" Grid.Row="2" Grid.Column="2"  Stretch="None" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
+            <Grid UseLayoutRounding="True" RenderOptions.BitmapScalingMode="NearestNeighbor" Height="200" >
+                <Image   Stretch="None"   Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/background.png"  HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                <Image    Stretch="None" Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/platform_opponent.png" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="127,72,0,0"  />
+                <Image    Stretch="None" Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/platform_you.png"  Margin="-94,122,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <Image Stretch="None"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/imgBulbasaurBack.png"   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-130,84,0,0"  />
+                <Image  Stretch="None"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/shadow_medium.png"   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,83,0,0"  />
+                <Image  Stretch="None"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/Sample/imgBulbasaurFront.png" Visibility="Visible"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,34,0,0"  />
+                <Image   Stretch="None"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/health_opponent.png"   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-135,18,0,0"  />
+
+                <Image   Stretch="None"    Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/text_bar.png" Margin="0,145,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <Image  Stretch="None"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/health_you.png" Margin="128,93,0,0"  HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <Image   Stretch="None" Visibility="Visible"  Source="pack://application:,,,/HGEngineHelper;component/GraphicsEditor/Images/border.png" Margin="0,-5" HorizontalAlignment="Center" VerticalAlignment="Top"   />
+                <!--<Image Margin="0" Width="255" Height="144" Source="/Images/platform_opponent.png"  />
+    <Image Margin="0" Width="121" Height="33" Source="/Images/platform_you.png"  />-->
+            </Grid>
+            <StackPanel HorizontalAlignment="Center" Margin="5" Orientation="Horizontal" Width="200">
+                <Button Width="100" >
+                    Toggle Frame
+                </Button>
+                <Button  Width="100">
+                    Toggle Shiny
+                </Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <local:NumericTextbox LabelWidth="100" Label="Global Front Y"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <local:NumericTextbox LabelWidth="100" Label="Shadow X"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <local:NumericTextbox LabelWidth="100" Label="Back Y  - Female"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" Margin="0,20,0,0" />
+                <local:NumericTextbox LabelWidth="100" Label="Back Y  - Male"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <local:NumericTextbox LabelWidth="100" Label="Front Y - Female"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <local:NumericTextbox LabelWidth="100" Label="Front Y - Male"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <local:NumericTextbox LabelWidth="100" Label="Front Animation"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" Margin="0,20,0,0" />
+                <local:NumericTextbox LabelWidth="100" Label="Back Animation"  ValueChangedEvent="NumericTextbox_ValueChangedEvent_1" />
+                <StackPanel Orientation="Horizontal" Margin="1">
+                    <TextBlock Name="lblAttribute" Text="Test" Width="100"/>
+                    <ComboBox Name="cboShadowSize" Width="80" SelectionChanged="cboShadowSize_SelectionChanged" >
+                        <ComboBoxItem Name="cboShadowNone">None</ComboBoxItem>
+                        <ComboBoxItem Name="cboShadowSmall">Small</ComboBoxItem>
+                        <ComboBoxItem Name="cboShadowMedium">Medium</ComboBoxItem>
+                        <ComboBoxItem Name="cboShadowLarge">Large</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

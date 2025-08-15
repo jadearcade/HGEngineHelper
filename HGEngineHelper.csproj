@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CustomControls\Images\downArrow.png" />
+    <None Remove="CustomControls\Images\upArrow.png" />
+    <None Remove="GraphicsEditor\health_opponent.png" />
+    <None Remove="GraphicsEditor\Images\background.png" />
+    <None Remove="GraphicsEditor\Images\border.png" />
+    <None Remove="GraphicsEditor\Images\health_opponent.png" />
+    <None Remove="GraphicsEditor\Images\health_you.png" />
+    <None Remove="GraphicsEditor\Images\platform_opponent.png" />
+    <None Remove="GraphicsEditor\Images\platform_you.png" />
+    <None Remove="GraphicsEditor\Images\Sample\back.png" />
+    <None Remove="GraphicsEditor\Images\Sample\front.png" />
+    <None Remove="GraphicsEditor\Images\Sample\imgBulbasaurBack.png" />
+    <None Remove="GraphicsEditor\Images\Sample\imgBulbasaurFront.png" />
+    <None Remove="GraphicsEditor\Images\Sample\spritePairBorder.png" />
+    <None Remove="GraphicsEditor\Images\shadow_large.png" />
+    <None Remove="GraphicsEditor\Images\shadow_medium.png" />
+    <None Remove="GraphicsEditor\Images\shadow_small.png" />
+    <None Remove="GraphicsEditor\Images\text_bar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvConverter" Version="2.0.0.7" />
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CustomControls\Images\downArrow.png" />
+    <Resource Include="CustomControls\Images\upArrow.png" />
+    <Resource Include="GraphicsEditor\health_opponent.png" />
+    <Resource Include="GraphicsEditor\Images\background.png" />
+    <Resource Include="GraphicsEditor\Images\border.png" />
+    <Resource Include="GraphicsEditor\Images\health_opponent.png" />
+    <Resource Include="GraphicsEditor\Images\health_you.png" />
+    <Resource Include="GraphicsEditor\Images\platform_opponent.png" />
+    <Resource Include="GraphicsEditor\Images\platform_you.png" />
+    <Resource Include="GraphicsEditor\Images\Sample\back.png" />
+    <Resource Include="GraphicsEditor\Images\Sample\front.png" />
+    <Resource Include="GraphicsEditor\Images\Sample\imgBulbasaurBack.png" />
+    <Resource Include="GraphicsEditor\Images\Sample\imgBulbasaurFront.png" />
+    <Resource Include="GraphicsEditor\Images\Sample\spritePairBorder.png" />
+    <Resource Include="GraphicsEditor\Images\shadow_large.png" />
+    <Resource Include="GraphicsEditor\Images\shadow_medium.png" />
+    <Resource Include="GraphicsEditor\Images\shadow_small.png" />
+    <Resource Include="GraphicsEditor\Images\text_bar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="GraphicsEditor\PokemonGraphicsEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HGEConverter\Importer\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HGEngineHelper</id>
+    <version>1.0.0</version>
+    <authors>HGEngineHelper</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net9.0-windows7.0">
+        <dependency id="CsvConverter" version="2.0.0.7" exclude="Build,Analyzers" />
+        <dependency id="CsvHelper" version="33.1.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net9.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\bin\Debug\net9.0-windows\HGEngineHelper.runtimeconfig.json" target="lib\net9.0-windows7.0\HGEngineHelper.runtimeconfig.json" />
+    <file src="C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\bin\Debug\net9.0-windows\HGEngineHelper.dll" target="lib\net9.0-windows7.0\HGEngineHelper.dll" />
+  </files>
+</package>
