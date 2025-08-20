@@ -34,14 +34,9 @@ namespace HGEngineHelper.Code.HGECodeHelper
         public static string SpeciesFormFileName = "data/PokeFormDataTbl.c";//"Complex" Dictionary
         public static string MegaFormTableFileName = "src/battle/mega.c";//struct list (losts of code, but the one part that needs to change is simple)
 
-        //Learnset - This may end up changing into a single JSON file with the learnset overhaul. Hold off for now
-        public static string TutorDataFileName = "armips/data/tutordata.txt";//Basic List w/ header row (needs investigation for BAD_EGG stuff)
-        public static string TmLearnsetFileName = "armips/data/tmlearnset.txt";//Basic List w/header row (needs investigating regarding item icon/palette)
-        public static string EggMovesFileName = "armips/data/eggmoves.s";//Basic List w/header row
-        public static string LevelUpLearnsetFileName = "armips/data/levelupdata.s";//Basic List w/header row and terminate
         //Sprites
-        public static string SpriteOffsetFileName = "armips/data/spriteOffsets.s";//Basic Lists (inline model)
-        public static string HeightTableFileName = "armips/data/heightTable.s";//Basic Lists (inline model)
+        public static string SpriteOffsetFileName = "armips/data/spriteoffsets.s";//Basic Lists (inline model)
+        public static string HeightTableFileName = "armips/data/heighttable.s";//Basic Lists (inline model)
         //Overworlds
         public static string SpeciesToOwGfxTableFileName = "data/SpeciesToOWGfx.c";//Basic Dictionary, look up snover split
         public static string OverworldTableFileName = "src/field/overworld_table.c";//Complex lists, lots of code, doable though
@@ -59,6 +54,13 @@ namespace HGEngineHelper.Code.HGECodeHelper
         public static string DexTrainerPosYFileNameFormat = "armips/data/pokedex/{0}trainerypos.s";//Halfword table
         //Dex - Sortlists - armips/data/pokedex/sortlists/*
         //?????  Gen 6+ commented ????
+
+        //Learnset - This may end up changing into a single JSON file with the learnset overhaul. Hold off for now
+        public static string TutorDataFileName = "armips/data/tutordata.txt";//Basic List w/ header row (needs investigation for BAD_EGG stuff)
+        public static string TmLearnsetFileName = "armips/data/tmlearnset.txt";//Basic List w/header row (needs investigating regarding item icon/palette)
+        public static string EggMovesFileName = "armips/data/eggmoves.s";//Basic List w/header row
+        public static string LevelUpLearnsetFileName = "armips/data/levelupdata.s";//Basic List w/header row and terminate
+
         //Trainers
         public static string TrainersFileName = "armips/data/trainers/trainers.s";//Models with header model
         public static string TrainersTextFileName = "armips/data/trainers/trainertext.s";//CONFUSING!!! Needs more research, should be doable, look into python script

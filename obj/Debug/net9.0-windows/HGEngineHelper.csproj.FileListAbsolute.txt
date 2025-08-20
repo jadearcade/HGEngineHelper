@@ -39,3 +39,4 @@ C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\obj\Debug\net9.0-windo
 C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\obj\Debug\net9.0-windows\ref\HGEngineHelper.dll
 C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\obj\Debug\net9.0-windows\CustomControls\NumericTextbox.g.cs
 C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\obj\Debug\net9.0-windows\CustomControls\NumericTextbox.baml
+C:\Users\jadea\source\repos\HGEngineHelper\HGEngineHelper\obj\Debug\net9.0-windows\HGEngineHelper.sourcelink.json

@@ -139,6 +139,7 @@ namespace HGEngineHelper.HGEConverter
 
         public BoolResultWithMessage ReadAllHgEngineData(IProgress<ProgressInfo> progressInfo, CancellationToken token)
         {
+            return new BoolResultWithMessage(true, "");
             if (token.IsCancellationRequested)
             {
                 return new BoolResultWithMessage(false, "Cancelled");

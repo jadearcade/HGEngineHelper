@@ -1,5 +1,8 @@
-﻿using HgEngineCsvConverter.Code;
+﻿using CsvHelper;
+using HgEngineCsvConverter.Code;
+using HGEngineHelper.Code.CsvProcessing;
 using HGEngineHelper.Code.HGECodeHelper;
+using Newtonsoft.Json;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -17,13 +20,12 @@ namespace HGEngineHelper.Code.HGEngineImport
     {
         public class OverworldAndIconData
         {
-            public Dictionary<string, int> speciesToOwGfxDict = new Dictionary<string, int>();//SPECIES -> OWGfx start
+            public Dictionary<string, string> speciesToOwGfxDict = new Dictionary<string, string>();//SPECIES -> OWGfx start
             public List<ByteTableEntry> iconPaletteTableEntries = new List<ByteTableEntry>();//One for each species
             public List<HgEngineOverworldTableEntry> followerEntries = new List<HgEngineOverworldTableEntry>();
             public List<ByteTableEntry> gDimorphismEntries = new List<ByteTableEntry>();//Mon Index Order
             public List<ByteTableEntry> numOwFormsPerMonEntries = new List<ByteTableEntry>();//Mon Index Order
             public List<HgeMonOwDataEntry> monOwDataEntries = new List<HgeMonOwDataEntry>();//GFX Tag Order
-          
         }
 
         public void ReadAllOverworldData(string basePath)
@@ -34,12 +36,44 @@ namespace HGEngineHelper.Code.HGEngineImport
             var readOwTableResult = ReadOverworldTableFile(basePath + HgEnginePaths.OverworldTableFileName);
             var readMonOwFileResult = ReadMonOverworldsFile(basePath + HgEnginePaths.MonOverworldsFileName);
             var x = 1;
+            var owAndIconData = new OverworldAndIconData()
+            {
+                speciesToOwGfxDict = speciesToOwgfxReadResult.dictionaryValues,
+                followerEntries = readOwTableResult.followerEntries,
+                gDimorphismEntries = readMonOwFileResult.byteTables.FirstOrDefault(i => i.tableName == GDimorphismTableVarName)?.entries ?? new List<ByteTableEntry>(),
+                iconPaletteTableEntries = iconPaletteTableReadResult.byteTables.FirstOrDefault()?.entries ?? new List<ByteTableEntry>(),
+                monOwDataEntries = readMonOwFileResult.owDataTable.dataEntries,
+                numOwFormsPerMonEntries = readMonOwFileResult.byteTables.First(i => i.tableName == NumOfOwFormsPerMonVarName)?.entries ?? new List<ByteTableEntry>(),
+            };
+
+            string json = JsonConvert.SerializeObject(owAndIconData, Formatting.Indented);
+
+            //write string to file
+            System.IO.File.WriteAllText(App.ProjectInfo.dataFolder + CsvFileNames.OverworldJsonInfo, json);
+
+            var csvNumFormsPerMon = owAndIconData.numOwFormsPerMonEntries.Select(i => new CsvNumFormsPerMon()
+            {
+                amount = i.value.ToInt(),
+                key = i.key,
+            }).ToList();
+
+            using (var writer = new StreamWriter(App.ProjectInfo.dataFolder + CsvFileNames.OverworldAnalysisInfo))
+            using (var csv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(csvNumFormsPerMon);
+            }
+        }
+
+        public class CsvNumFormsPerMon
+        {
+            public string key { get; set; }
+            public int amount { get; set; }
         }
 
         private HgeMonOwFileReadResult ReadMonOverworldsFile(string path)
         {
             var parser = new HGEngineCodeParser();
-            var byteTableFileRead = parser.ReadByteTablesFile(path, MonOverworldsFileNames);
+            var byteTableFileRead = parser.ReadByteTablesFile(path, MonOverworldsVarNames);
             var owDataTable = ReadMonDataEntriesFromCodeSection(byteTableFileRead.lastCodeSection.lines);
 
             return new HgeMonOwFileReadResult()
@@ -66,7 +100,7 @@ namespace HGEngineHelper.Code.HGEngineImport
         public static string GDimorphismTableVarName = "gDimorphismTable";
         public static string NumOfOwFormsPerMonVarName = "NumOfOWFormsPerMon";
 
-        public static List<string> MonOverworldsFileNames = new List<string>()
+        public static List<string> MonOverworldsVarNames = new List<string>()
         { GDimorphismTableVarName, NumOfOwFormsPerMonVarName };
 
         public HgEngineOverworldTableReadResult ReadOverworldTableFile(string path)

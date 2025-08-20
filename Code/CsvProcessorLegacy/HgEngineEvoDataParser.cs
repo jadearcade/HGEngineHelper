@@ -1,4 +1,5 @@
 ﻿using CsvConverter;
+using CsvHelper.Configuration.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,6 +36,7 @@ namespace HgEngineCsvConverter.Code
             public string MoveType { get; set; } = "";
             [CsvConverter(ColumnIndex = 10, ColumnName = "Other Mon")]
             public string OtherMonSpecies { get; set; } = "";
+            [CsvConverter(IgnoreWhenReading =true, IgnoreWhenWriting =true)]
             public EvoType evoType => (EvoType) Enum.Parse(typeof(EvoType), EvoType);
 
             public List<string> GetEvoTableEntry()
